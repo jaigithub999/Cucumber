@@ -53,12 +53,14 @@ public class LoginSteps {
 
 	@When("user click login button without username and password")
 	public void userClickLoginButtonWithoutUsernameAndPassword() {
-	    
+	    WebElement loginBtn = driver.findElement(By.name("login"));
+	    loginBtn.click();
 	}
 
 	@Then("user should see error message")
 	public void userShouldSeeErrorMessage() {
-	    
+		WebElement errorMsg = driver.findElement(By.xpath("//div[contains(text(),'The email')]"));
+	    Assert.assertTrue(errorMsg.isDisplayed());
 	}
 
 
